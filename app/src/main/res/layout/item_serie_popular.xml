@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:background="@color/gris_negruzco"
+    android:padding="8dp"
+    android:layout_marginRight="12dp">
+
+    <ImageView
+        android:id="@+id/ivIconoSerie"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_background"/>
+
+    <TextView
+        android:id="@+id/tvNombreSerie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="@color/blanco"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvPopularidadSerie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Popularidad: 0"
+        android:textColor="@color/blanco"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>

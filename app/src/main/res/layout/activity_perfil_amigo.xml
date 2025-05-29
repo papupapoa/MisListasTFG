@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris_negruzco"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/tvPerfilAmigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perfil de amigo"
+        android:textColor="@color/blanco"
+        android:textSize="22sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"/>
+
+    <ImageView
+        android:id="@+id/ivFotoPerfilAmigo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_friends"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Foto de perfil amigo"/>
+
+    <TextView
+        android:id="@+id/tvNombreAmigoPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del amigo"
+        android:textColor="@color/blanco"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"/>
+
+    <Button
+        android:id="@+id/btnVerPelisAmigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listas de Películas"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#6cf3d5"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btnVerSeriesAmigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listas de Series"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#6cf3d5"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btnVerLibrosAmigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listas de Libros"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#6cf3d5"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListasAmigo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"/>
+
+</LinearLayout>

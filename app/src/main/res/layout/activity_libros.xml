@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris_negruzco">
+
+    <ImageButton
+        android:id="@+id/logoLibros"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/iconapp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Logo app"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Libros más populares"
+        android:textColor="@color/blanco"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLibrosPopulares"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:clipToPadding="false"/>
+
+    <Button
+        android:id="@+id/btnCrearListaLibros"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Crear lista de libros"
+        android:textColor="#000000"
+        android:backgroundTint="#6cf3d5"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"/>
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gris_negruzco"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/logoCrearListaLibros"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/iconapp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Logo app"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true" />
+
+        <EditText
+            android:id="@+id/etNombreLista"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Nombre de la lista"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/gris_claro"
+            android:background="@drawable/edittext_white_border"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="20dp"
+            android:padding="16dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/etBuscarLibro"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Buscar libro"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/gris_claro"
+            android:background="@drawable/edittext_white_border"
+            android:layout_marginBottom="24dp"
+            android:padding="16dp"
+            android:textSize="18sp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLibros"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionados:"
+            android:textColor="@color/blanco"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/layoutSeleccionados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnGuardarLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar lista"
+            android:textColor="#000000"
+            android:backgroundTint="#6cf3d5"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:onClick="guardarLista"/>
+
+    </LinearLayout>
+</ScrollView>

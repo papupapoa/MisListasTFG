@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MisListas"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".PerfilActivity" />
+        <activity android:name=".PeliculasActivity" />
+        <activity android:name=".SeriesActivity" />
+        <activity android:name=".LibrosActivity" />
+        <activity android:name=".CrearListaPeliculasActivity" />
+        <activity android:name=".CrearListaSeriesActivity" />
+        <activity android:name=".CrearListaLibrosActivity" />
+        <activity android:name=".BibliotecaActivity" />
+        <activity android:name=".ListasPeliculasActivity" />
+        <activity android:name=".ListasSeriesActivity" />
+        <activity android:name=".ListasLibrosActivity" />
+        <activity android:name=".AmigosActivity" />
+        <activity android:name=".PerfilAmigoActivity" />
+        <activity android:name=".ContenidoListaAmigoActivity" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris_negruzco">
+
+    <ImageButton
+        android:id="@+id/logoBiblioteca"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/iconapp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Logo app"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true" />
+
+    <Button
+        android:id="@+id/btnListasPeliculas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listas de Películas"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"
+        android:backgroundTint="#6cf3d5"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btnListasSeries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listas de Series"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"
+        android:backgroundTint="#6cf3d5"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btnListasLibros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listas de Libros"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"
+        android:backgroundTint="#6cf3d5"
+        android:textStyle="bold"/>
+
+</LinearLayout>

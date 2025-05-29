@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#1E1E1E"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/iconapp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/login_fields_bg"
+        android:padding="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="32dp"
+        android:elevation="4dp">
+
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre o Email"
+            android:textColorHint="#888888"
+            android:textColor="#000000"
+            android:backgroundTint="#CCCCCC"
+            android:background="@android:color/transparent" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textColorHint="#888888"
+            android:textColor="#000000"
+            android:backgroundTint="#CCCCCC"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar sesión"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#6cf3d5"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnIrARegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿No tienes cuenta? Regístrate"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#444444"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

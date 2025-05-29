@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris_negruzco">
+
+    <ImageButton
+        android:id="@+id/logoAmigos"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/iconapp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Logo app"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true" />
+
+    <TextView
+        android:id="@+id/tvTituloAmigos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mis Amigos"
+        android:textColor="@color/blanco"
+        android:textSize="22sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAmigos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:clipToPadding="false"/>
+
+    <Button
+        android:id="@+id/btnAgregarAmigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar amigo"
+        android:layout_margin="16dp"
+        android:backgroundTint="#6cf3d5"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+
+</LinearLayout>

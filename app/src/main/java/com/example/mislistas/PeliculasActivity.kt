@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -50,8 +51,43 @@ class PeliculasActivity : AppCompatActivity() {
             finish()
         }
 
-        // El layout ya no tiene btnPerfil, así que eliminamos la referencia y el código asociado
-        // Si se requiere acceso al perfil, se debe hacer desde el Home o desde el menú principal
+        val btnPerfil = findViewById<ImageButton>(R.id.btnPerfil)
+        val prefs = getSharedPreferences("perfil_prefs", MODE_PRIVATE)
+        val savedPath = prefs.getString("profile_image_path", null)
+        if (!savedPath.isNullOrEmpty()) {
+            val file = java.io.File(savedPath)
+            if (file.exists()) {
+                val bitmap = android.graphics.BitmapFactory.decodeFile(savedPath)
+                btnPerfil.setImageBitmap(bitmap)
+            }
+        }
+        btnPerfil.setOnClickListener {
+            startActivity(Intent(this, PerfilActivity::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val btnPerfil = findViewById<ImageButton>(R.id.btnPerfil)
+        val prefs = getSharedPreferences("perfil_prefs", MODE_PRIVATE)
+        val idUsuario = prefs.getInt("idUsuario", -1)
+        val profileKey = if (idUsuario != -1) "profile_image_path_$idUsuario" else "profile_image_path"
+        val savedPath = prefs.getString(profileKey, null)
+        if (!savedPath.isNullOrEmpty()) {
+            val file = java.io.File(savedPath)
+            if (file.exists()) {
+                val bitmap = android.graphics.BitmapFactory.decodeFile(savedPath)
+                val size = kotlin.math.min(bitmap.width, bitmap.height)
+                val output = android.graphics.Bitmap.createBitmap(size, size, android.graphics.Bitmap.Config.ARGB_8888)
+                val canvas = android.graphics.Canvas(output)
+                val paint = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG)
+                val path = android.graphics.Path()
+                path.addCircle(size / 2f, size / 2f, size / 2f, android.graphics.Path.Direction.CCW)
+                canvas.clipPath(path)
+                canvas.drawBitmap(bitmap, (size - bitmap.width) / 2f, (size - bitmap.height) / 2f, paint)
+                btnPerfil.setImageBitmap(output)
+            }
+        }
     }
 
     private fun actualizarPopularidadPeliculas(db: AppDatabase) {

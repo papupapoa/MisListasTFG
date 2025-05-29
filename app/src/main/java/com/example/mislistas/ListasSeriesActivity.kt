@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,17 +21,23 @@ class ListasSeriesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_listas_series)
 
         val btnPerfil = findViewById<ImageButton>(R.id.btnPerfil)
-        val prefs = getSharedPreferences("perfil_prefs", MODE_PRIVATE)
-        val savedPath = prefs.getString("profile_image_path", null)
-        if (!savedPath.isNullOrEmpty()) {
-            val file = File(savedPath)
-            if (file.exists()) {
-                val bitmap = BitmapFactory.decodeFile(savedPath)
-                btnPerfil.setImageBitmap(bitmap)
-            }
-        }
         btnPerfil.setOnClickListener {
-            startActivity(Intent(this, PerfilActivity::class.java))
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        val prefs = getSharedPreferences("perfil_prefs", MODE_PRIVATE)
+        val idUsuario = prefs.getInt("idUsuario", -1)
+        val profileKey = if (idUsuario != -1) "profile_image_path_$idUsuario" else "profile_image_path"
+        val savedPath = prefs.getString(profileKey, null)
+        if (!savedPath.isNullOrEmpty()) {
+            setProfileImage(btnPerfil, savedPath)
+        }
+        val logoHome = findViewById<ImageView>(R.id.logoHome)
+        logoHome.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
         }
 
         val rvListasSeries = findViewById<RecyclerView>(R.id.rvListasSeries)
@@ -50,6 +57,39 @@ class ListasSeriesActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
+        }
+    }
+
+    private fun setProfileImage(button: ImageButton, imagePath: String) {
+        val file = java.io.File(imagePath)
+        if (file.exists()) {
+            val bitmap = android.graphics.BitmapFactory.decodeFile(imagePath)
+            val circularBitmap = getCircularBitmap(bitmap)
+            button.setImageBitmap(circularBitmap)
+        }
+    }
+
+    private fun getCircularBitmap(bitmap: android.graphics.Bitmap): android.graphics.Bitmap {
+        val size = kotlin.math.min(bitmap.width, bitmap.height)
+        val output = android.graphics.Bitmap.createBitmap(size, size, android.graphics.Bitmap.Config.ARGB_8888)
+        val canvas = android.graphics.Canvas(output)
+        val paint = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG)
+        val path = android.graphics.Path()
+        path.addCircle(size / 2f, size / 2f, size / 2f, android.graphics.Path.Direction.CCW)
+        canvas.clipPath(path)
+        canvas.drawBitmap(bitmap, (size - bitmap.width) / 2f, (size - bitmap.height) / 2f, paint)
+        return output
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val btnPerfil = findViewById<ImageButton>(R.id.btnPerfil)
+        val prefs = getSharedPreferences("perfil_prefs", MODE_PRIVATE)
+        val idUsuario = prefs.getInt("idUsuario", -1)
+        val profileKey = if (idUsuario != -1) "profile_image_path_$idUsuario" else "profile_image_path"
+        val savedPath = prefs.getString(profileKey, null)
+        if (!savedPath.isNullOrEmpty()) {
+            setProfileImage(btnPerfil, savedPath)
         }
     }
 }
